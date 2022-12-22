@@ -13,7 +13,8 @@ const updateLocalStorage = (event) => {
     let currentValue = ""; 
 
     try {
-        currentValue = event.currentTarget.value;
+        //currentValue = event.currentTarget.value;
+        currentValue = event.target.value;
     }
     catch (error){
         return;
@@ -38,7 +39,7 @@ const updateLocalStorage = (event) => {
 inputEmail.addEventListener("input",throttle(updateLocalStorage,500));
 textareaMessage.addEventListener("input",throttle(updateLocalStorage,500));
 
-const clear = (event) => {  
+const clearFormData = (event) => {  
     event.preventDefault();
 
     console.log(formData);  
@@ -47,9 +48,10 @@ const clear = (event) => {
     formData.email = "";
     formData.message = "";      
     localStorage.setItem("feedback-form-state",JSON.stringify(formData));
+    form.reset();
 }; 
 
-form.addEventListener("submit",clear);
+form.addEventListener("submit",clearFormData);
 
 const ready = () =>{
     try{
