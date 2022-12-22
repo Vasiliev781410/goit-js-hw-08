@@ -58,10 +58,12 @@ const ready = () =>{
         //console.log(parsedSettings); 
 
         if (parsedSettings.email !== ""){
-            inputEmail.value = parsedSettings.email;  
+            inputEmail.value = parsedSettings.email;
+            formData.email = parsedSettings.email;  
         };
         if (parsedSettings.message !== ""){
-            textareaMessage.value = parsedSettings.message; 
+            textareaMessage.value = parsedSettings.message;
+            formData.message = parsedSettings.message;
         };               
     }
     catch (error){
